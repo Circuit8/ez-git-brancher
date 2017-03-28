@@ -15,17 +15,17 @@ class Brancher
 private
 
   def find_version_branch
-    version_branches = @git.branches.select{ |branch|
+    version_branches = @git.branches.local.select{ |branch|
       branch.name[0] == 'v'
     }
 
     case version_branches.size
     when 0
-      raise StandardError 'no version branches found'
+      raise 'no version branches found'
     when 1
       @version_branch = version_branches.first.name
     else
-      raise StandardError 'multiple version branches found'
+      raise'multiple version branches found'
     end
   end
 
