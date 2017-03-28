@@ -3,4 +3,4 @@ require 'pry'
 require './brancher'
 
 brancher = Brancher.new
-brancher.branch ARGV[0]
+brancher.branch ARGV[0], ARGV[1]
