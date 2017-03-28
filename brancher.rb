@@ -44,8 +44,8 @@ private
   def switch_to_new issue_num, description
     new_name = "i-#{issue_num}"
     if description
-      description.gsub!(' ', '-')
-      new_name << "-#{description}"
+      hyphenated_description = description.gsub(' ', '-')
+      new_name << "-#{hyphenated_description}"
     end 
     @git.branch(new_name).checkout
   end
