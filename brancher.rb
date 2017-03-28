@@ -44,7 +44,7 @@ private
   def switch_to_new issue_num, description
     new_name = "i-#{issue_num}"
     if description
-      description.gusb!(' ', '-')
+      description.gsub!(' ', '-')
       new_name << "-#{description}"
     end 
     @git.branch(new_name).checkout
