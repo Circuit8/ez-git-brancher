@@ -5,6 +5,7 @@ class Brancher
   end
 
   def branch issue_num, description=nil
+    raise 'no issue number given' unless issue_num
     find_version_branch
     checkout_version
     merge_current_into_version
@@ -25,7 +26,7 @@ private
     when 1
       @version_branch = version_branches.first.name
     else
-      raise'multiple version branches found'
+      raise 'multiple version branches found'
     end
   end
 
